@@ -167,7 +167,9 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html {
+  html,
+  body {
+    height: 100%;
     @apply bg-background;
   }
   body {
@@ -175,6 +177,19 @@
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-user-select: none;
+    /* Evita el rebote / pull-to-refresh dentro del WebView del APK */
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@layer utilities {
+  /* Respeta el notch y las barras de sistema en Android (viewport-fit=cover) */
+  .safe-area {
+    padding-top: max(env(safe-area-inset-top), 0px);
+    padding-bottom: max(env(safe-area-inset-bottom), 0px);
+    padding-left: max(env(safe-area-inset-left), 0px);
+    padding-right: max(env(safe-area-inset-right), 0px);
   }
 }
 

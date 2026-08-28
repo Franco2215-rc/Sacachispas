@@ -187,7 +187,7 @@ export function EcoConnectGame() {
   const ss = (seconds % 60).toString().padStart(2, '0')
 
   return (
-    <div className="flex min-h-dvh flex-col px-4 py-3 sm:px-6">
+    <div className="safe-area mx-auto flex min-h-dvh w-full max-w-2xl flex-col justify-center px-4 py-3 sm:px-6">
       {/* Barra superior */}
       <header className="flex items-center justify-between gap-3">
         <BrandLogo size="sm" />
@@ -219,7 +219,7 @@ export function EcoConnectGame() {
         onPointerMove={onBoardMove}
         onPointerUp={onBoardUp}
         onPointerLeave={onBoardUp}
-        className="relative mt-3 flex flex-1 items-center justify-between gap-3 sm:gap-10"
+        className="relative mt-3 flex items-center justify-between gap-3 sm:gap-10"
         style={{ touchAction: 'none' }}
       >
         {/* Columna acciones */}
@@ -346,8 +346,13 @@ export function EcoConnectGame() {
         </div>
       </div>
 
-      <footer className="pt-2 text-center text-[10px] text-muted-foreground/70">
-        {COPYRIGHT} · Fines educativos y sin fines de lucro
+      <footer className="flex items-center justify-center gap-1.5 pt-2 text-center text-[10px] text-muted-foreground/70">
+        <img
+          src="/images/pakova-logo.jpeg"
+          alt="Logo de Pakova"
+          className="h-4 w-4 rounded-full object-cover"
+        />
+        <span>{COPYRIGHT} · Fines educativos</span>
       </footer>
 
       {learn ? (

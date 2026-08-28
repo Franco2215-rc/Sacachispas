@@ -5,7 +5,7 @@ import { PAIRS, COPYRIGHT } from '@/lib/game-data'
 
 export function StartScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6 py-10 text-center">
+    <div className="safe-area relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-6 py-8 text-center sm:py-10">
       {/* Decoración de fondo suave */}
       <div
         aria-hidden
@@ -60,10 +60,17 @@ export function StartScreen({ onStart }: { onStart: () => void }) {
       </div>
 
       <footer className="relative z-10 mt-10 flex flex-col items-center gap-1 text-center">
-        <p className="text-xs font-medium text-muted-foreground">{COPYRIGHT}</p>
+        <div className="flex items-center gap-2">
+          <img
+            src="/images/pakova-logo.jpeg"
+            alt="Logo de Pakova"
+            className="h-6 w-6 rounded-full object-cover"
+          />
+          <p className="text-xs font-medium text-muted-foreground">{COPYRIGHT}</p>
+        </div>
         <p className="max-w-md text-[10px] leading-tight text-muted-foreground/70">
-          Juego con fines educativos y sin fines de lucro. Coca-Cola es una marca
-          registrada de The Coca-Cola Company, usada aquí con fines educativos.
+          Juego con fines educativos. Coca-Cola es una marca registrada de The
+          Coca-Cola Company, usada aquí con fines educativos.
         </p>
       </footer>
     </div>
